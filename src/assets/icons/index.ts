@@ -1,4 +1,5 @@
 export * from './CheckIcon'
+export * from './DropDownArrow'
 export * from './EyeIcon'
 export * from './EyeOffIcon'
 export * from './GoogleIcon'

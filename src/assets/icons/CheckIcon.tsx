@@ -1,6 +1,6 @@
-import { SVGProps } from 'react'
+import { ComponentProps } from 'react'
 
-type Props = SVGProps<SVGSVGElement>
+type Props = ComponentProps<'svg'>
 export const CheckIcon = (props: Props) => {
   return (
     <svg

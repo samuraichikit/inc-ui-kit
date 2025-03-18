@@ -1,13 +1,12 @@
-import { ComponentPropsWithoutRef, forwardRef } from 'react'
+import { ComponentProps, forwardRef } from 'react'
 
-type Props = ComponentPropsWithoutRef<'svg'>
+type Props = ComponentProps<'svg'>
 
-export const GoogleIcon = forwardRef<SVGSVGElement, Props>((props, ref) => {
+export const GoogleIcon = (props: Props) => {
   return (
     <svg
       fill={'none'}
       height={'36'}
-      ref={ref}
       viewBox={'0 0 24 24'}
       width={'36'}
       xmlns={'http://www.w3.org/2000/svg'}
@@ -46,4 +45,4 @@ export const GoogleIcon = forwardRef<SVGSVGElement, Props>((props, ref) => {
       </defs>
     </svg>
   )
-})
+}
