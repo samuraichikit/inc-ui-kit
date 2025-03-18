@@ -1,0 +1,87 @@
+import { ComponentProps, useId, useState } from 'react'
+
+import clsx from 'clsx'
+
+import s from './textField.module.scss'
+
+import { EyeIcon, EyeOffIcon, SearchIcon } from '../../assets/icons'
+import { Typography } from '../typography'
+
+export type TextFieldProps = {
+  errorMessage?: string
+  id?: string
+  label?: string
+  mandatory?: boolean
+} & ComponentProps<'input'>
+
+export const TextField = ({
+  className,
+  errorMessage,
+  id,
+  label,
+  mandatory,
+  type,
+  ...props
+}: TextFieldProps) => {
+  const [showPassword, setShowPassword] = useState(false)
+
+  const isPassword = type === 'password'
+
+  const isSearch = type === 'search'
+
+  let finalType = type
+
+  if (isPassword) {
+    finalType = showPassword ? 'text' : 'password'
+  }
+
+  const generatedId = useId()
+  const idToUse = id ?? generatedId
+
+  const showPasswordClickHandler = () => setShowPassword(prev => !prev)
+
+  return (
+    <div className={clsx(s.wrapper, className)}>
+      {!!label && (
+        <Typography asChild className={s.label} variant={'regular_text_14'}>
+          <label htmlFor={idToUse}>
+            {label}
+            {mandatory && (
+              <Typography asChild variant={'error'}>
+                <span>*</span>
+              </Typography>
+            )}
+          </label>
+        </Typography>
+      )}
+      <div className={s.iconWrapper}>
+        <input
+          className={clsx(
+            s.input,
+            errorMessage && s.errorInput,
+            isPassword && s.passwordInput,
+            isSearch && s.searchInput
+          )}
+          id={idToUse}
+          type={finalType}
+          {...props}
+        />
+        {isPassword && (
+          <button className={s.button} onClick={showPasswordClickHandler} type={'button'}>
+            {showPassword ? (
+              <EyeOffIcon className={s.eyeIcon} height={24} width={24} />
+            ) : (
+              <EyeIcon className={s.eyeIcon} height={24} width={24} />
+            )}
+          </button>
+        )}
+        {isSearch && <SearchIcon className={s.searchIcon} height={20} width={20} />}
+      </div>
+      {errorMessage && (
+        <Typography className={s.error} variant={'regular_text_14'}>
+          {errorMessage}
+        </Typography>
+      )}
+    </div>
+  )
+}
