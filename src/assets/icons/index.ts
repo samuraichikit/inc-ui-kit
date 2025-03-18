@@ -1,3 +1,4 @@
+export * from './CheckIcon'
 export * from './EyeIcon'
 export * from './EyeOffIcon'
 export * from './GoogleIcon'
