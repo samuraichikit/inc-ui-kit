@@ -11,6 +11,15 @@
   color: var(--color-light-900);
 }
 
+.searchIcon {
+  position: absolute;
+  bottom: 50%;
+  left: 15px;
+  transform: translateY(50%);
+
+  color: var(--color-light-900);
+}
+
 .input {
   width: 100%;
   padding: 6px 12px;
@@ -36,16 +45,21 @@
     border-color: var(--color-light-900);
   }
 
-  &:active {
+  &:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+  }
+
+  &:active:not([disabled]) {
     border-color: var(--color-light-100);
+    color: var(--color-light-100);
 
     &::placeholder {
       color: var(--color-light-100);
     }
-  }
 
-  &:focus-visible {
-    outline: 2px solid var(--color-accent-500);
+    ~ .searchIcon {
+      color: var(--color-light-100);
+    }
   }
 }
 
@@ -62,13 +76,6 @@
   display: flex;
 }
 
-.searchIcon {
-  position: absolute;
-  bottom: 50%;
-  left: 15px;
-  transform: translateY(50%);
-}
-
 .error {
   color: var(--color-danger-500);
 }
@@ -83,15 +90,6 @@
 
 .searchInput {
   padding-left: 41px;
-}
-
-.searchIcon *[fill] {
-  fill: var(--color-light-900);
-}
-
-.errorInput + .searchIcon *[fill],
-.wrapper:has(input:active) .searchIcon *[fill] {
-  fill: var(--color-light-100);
 }
 
 .wrapper:has(input:disabled) {

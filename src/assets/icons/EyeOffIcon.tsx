@@ -37,7 +37,7 @@ export const EyeOffIcon = forwardRef<SVGSVGElement, Props>(
         </g>
         <defs>
           <clipPath id={'clip0_301_3928'}>
-            <rect fill={'white'} height={height} width={width} />
+            <rect fill={'currentColor'} height={height} width={width} />
           </clipPath>
         </defs>
       </svg>

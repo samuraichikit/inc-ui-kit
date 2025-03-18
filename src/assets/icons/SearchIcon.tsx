@@ -23,7 +23,7 @@ export const SearchIcon = forwardRef<SVGSVGElement, Props>((props, ref) => {
       </g>
       <defs>
         <clipPath id={'clip0_301_4552'}>
-          <rect fill={'white'} height={'24'} width={'24'} />
+          <rect fill={'currentColor'} height={'24'} width={'24'} />
         </clipPath>
       </defs>
     </svg>
