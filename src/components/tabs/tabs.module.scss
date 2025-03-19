@@ -1,0 +1,46 @@
+.tabs {
+  width: 100%;
+}
+
+.trigger {
+  all: unset;
+
+  cursor: pointer;
+
+  padding: 6px 24px;
+  border-bottom: 2px solid var(--color-dark-100);
+
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--color-dark-100);
+
+  &:focus-visible {
+    border-radius: 2px;
+    outline: 2px solid var(--color-accent-700);
+  }
+
+  &[data-disabled] {
+    cursor: not-allowed;
+    border-bottom-color: var(--color-dark-300);
+    color: var(--color-dark-300);
+  }
+
+  &:not([data-disabled]) {
+    &:hover {
+      background-color: rgba(#234e99, 0.15);
+    }
+
+    &:active {
+      background-color: rgba(#73a5ff, 0.15);
+    }
+  }
+
+  &[data-state='active'] {
+    border-bottom-color: var(--color-accent-500);
+    color: var(--color-accent-500);
+
+    &[data-disabled] {
+      border-bottom-color: var(--color-accent-900);
+      color: var(--color-accent-900);
+    }
+  }
+}
