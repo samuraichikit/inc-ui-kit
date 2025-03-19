@@ -4,14 +4,14 @@ import clsx from 'clsx'
 
 import s from './table.module.scss'
 
-type Table = ComponentProps<'table'>
-type TableHead = ComponentProps<'thead'>
-type TableBody = ComponentProps<'tbody'>
-type TableRow = ComponentProps<'tr'>
-type TableHeadCell = ComponentProps<'th'>
-type TableBodyCell = ComponentProps<'td'>
+type TableProps = ComponentProps<'table'>
+type TableHeadProps = ComponentProps<'thead'>
+type TableBodyProps = ComponentProps<'tbody'>
+type TableRowProps = ComponentProps<'tr'>
+type TableHeadCellProps = ComponentProps<'th'>
+type TableBodyCellProps = ComponentProps<'td'>
 
-export const Table = ({ className, ...rest }: Table) => {
+export const Table = ({ className, ...rest }: TableProps) => {
   const classNames = {
     table: clsx(s.table, className),
   }
@@ -19,7 +19,7 @@ export const Table = ({ className, ...rest }: Table) => {
   return <table className={classNames.table} {...rest} />
 }
 
-export const TableHead = ({ className, ...rest }: TableHead) => {
+export const TableHead = ({ className, ...rest }: TableHeadProps) => {
   const classNames = {
     tableHead: className,
   }
@@ -27,7 +27,7 @@ export const TableHead = ({ className, ...rest }: TableHead) => {
   return <thead className={classNames.tableHead} {...rest} />
 }
 
-export const TableBody = ({ className, ...rest }: TableBody) => {
+export const TableBody = ({ className, ...rest }: TableBodyProps) => {
   const classNames = {
     tableBody: className,
   }
@@ -35,7 +35,7 @@ export const TableBody = ({ className, ...rest }: TableBody) => {
   return <tbody className={classNames.tableBody} {...rest} />
 }
 
-export const TableRow = ({ className, ...rest }: TableRow) => {
+export const TableRow = ({ className, ...rest }: TableRowProps) => {
   const classNames = {
     tableRow: className,
   }
@@ -43,7 +43,7 @@ export const TableRow = ({ className, ...rest }: TableRow) => {
   return <tr className={classNames.tableRow} {...rest} />
 }
 
-export const TableHeadCell = ({ className, ...rest }: TableHeadCell) => {
+export const TableHeadCell = ({ className, ...rest }: TableHeadCellProps) => {
   const classNames = {
     tableHeadCell: clsx(s.tableHeadCell, className),
   }
@@ -51,7 +51,7 @@ export const TableHeadCell = ({ className, ...rest }: TableHeadCell) => {
   return <th className={classNames.tableHeadCell} {...rest} />
 }
 
-export const TableBodyCell = ({ className, ...rest }: TableBodyCell) => {
+export const TableBodyCell = ({ className, ...rest }: TableBodyCellProps) => {
   const classNames = {
     tableBodyCell: clsx(s.tableBodyCell, className),
   }
