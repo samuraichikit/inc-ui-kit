@@ -1,4 +1,4 @@
-import { ComponentProps, forwardRef } from 'react'
+import { ComponentProps } from 'react'
 
 type Props = ComponentProps<'svg'>
 
