@@ -1,3 +1,5 @@
+export * from './ArrowBackIcon'
+export * from './ArrowForwardIcon'
 export * from './CheckIcon'
 export * from './DropDownArrow'
 export * from './EyeIcon'
