@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react'
+import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
 import * as SelectRadix from '@radix-ui/react-select'
 import clsx from 'clsx'
@@ -7,12 +7,14 @@ import s from './selectItem.module.scss'
 
 type SelectItemProps = {
   small?: boolean
-} & ComponentProps<typeof SelectRadix.Item>
+} & ComponentPropsWithoutRef<typeof SelectRadix.Item>
 
-export const SelectItem = ({ children, className, small, ...rest }: SelectItemProps) => {
-  return (
-    <SelectRadix.Item className={clsx(s.item, small && s.small, className)} {...rest}>
-      <SelectRadix.ItemText>{children}</SelectRadix.ItemText>
-    </SelectRadix.Item>
-  )
-}
+export const SelectItem = forwardRef<ElementRef<typeof SelectRadix.Item>, SelectItemProps>(
+  ({ children, className, small, ...rest }, ref) => {
+    return (
+      <SelectRadix.Item className={clsx(s.item, small && s.small, className)} {...rest} ref={ref}>
+        <SelectRadix.ItemText>{children}</SelectRadix.ItemText>
+      </SelectRadix.Item>
+    )
+  }
+)

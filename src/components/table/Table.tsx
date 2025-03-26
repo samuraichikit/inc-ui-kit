@@ -1,60 +1,65 @@
-import { ComponentProps } from 'react'
+import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
 import clsx from 'clsx'
 
 import s from './table.module.scss'
 
-type TableProps = ComponentProps<'table'>
-type TableHeadProps = ComponentProps<'thead'>
-type TableBodyProps = ComponentProps<'tbody'>
-type TableRowProps = ComponentProps<'tr'>
-type TableHeadCellProps = ComponentProps<'th'>
-type TableBodyCellProps = ComponentProps<'td'>
+export const Table = forwardRef<ElementRef<'table'>, ComponentPropsWithoutRef<'table'>>(
+  ({ className, ...rest }, ref) => {
+    const classNames = {
+      table: clsx(s.table, className),
+    }
 
-export const Table = ({ className, ...rest }: TableProps) => {
-  const classNames = {
-    table: clsx(s.table, className),
+    return <table className={classNames.table} {...rest} ref={ref} />
   }
+)
 
-  return <table className={classNames.table} {...rest} />
-}
+export const TableHead = forwardRef<ElementRef<'thead'>, ComponentPropsWithoutRef<'thead'>>(
+  ({ className, ...rest }, ref) => {
+    const classNames = {
+      tableHead: className,
+    }
 
-export const TableHead = ({ className, ...rest }: TableHeadProps) => {
-  const classNames = {
-    tableHead: className,
+    return <thead className={classNames.tableHead} {...rest} ref={ref} />
   }
+)
 
-  return <thead className={classNames.tableHead} {...rest} />
-}
+export const TableBody = forwardRef<ElementRef<'tbody'>, ComponentPropsWithoutRef<'tbody'>>(
+  ({ className, ...rest }, ref) => {
+    const classNames = {
+      tableBody: className,
+    }
 
-export const TableBody = ({ className, ...rest }: TableBodyProps) => {
-  const classNames = {
-    tableBody: className,
+    return <tbody className={classNames.tableBody} {...rest} ref={ref} />
   }
+)
 
-  return <tbody className={classNames.tableBody} {...rest} />
-}
+export const TableRow = forwardRef<ElementRef<'tr'>, ComponentPropsWithoutRef<'tr'>>(
+  ({ className, ...rest }, ref) => {
+    const classNames = {
+      tableRow: className,
+    }
 
-export const TableRow = ({ className, ...rest }: TableRowProps) => {
-  const classNames = {
-    tableRow: className,
+    return <tr className={classNames.tableRow} {...rest} ref={ref} />
   }
+)
 
-  return <tr className={classNames.tableRow} {...rest} />
-}
+export const TableHeadCell = forwardRef<ElementRef<'th'>, ComponentPropsWithoutRef<'th'>>(
+  ({ className, ...rest }, ref) => {
+    const classNames = {
+      tableHeadCell: clsx(s.tableHeadCell, className),
+    }
 
-export const TableHeadCell = ({ className, ...rest }: TableHeadCellProps) => {
-  const classNames = {
-    tableHeadCell: clsx(s.tableHeadCell, className),
+    return <th className={classNames.tableHeadCell} {...rest} ref={ref} />
   }
+)
 
-  return <th className={classNames.tableHeadCell} {...rest} />
-}
+export const TableBodyCell = forwardRef<ElementRef<'td'>, ComponentPropsWithoutRef<'td'>>(
+  ({ className, ...rest }, ref) => {
+    const classNames = {
+      tableBodyCell: clsx(s.tableBodyCell, className),
+    }
 
-export const TableBodyCell = ({ className, ...rest }: TableBodyCellProps) => {
-  const classNames = {
-    tableBodyCell: clsx(s.tableBodyCell, className),
+    return <td className={classNames.tableBodyCell} {...rest} ref={ref} />
   }
-
-  return <td className={classNames.tableBodyCell} {...rest} />
-}
+)

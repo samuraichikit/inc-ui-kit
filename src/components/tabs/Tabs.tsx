@@ -1,35 +1,42 @@
-import { ComponentProps } from 'react'
+import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
 import * as TabsPrimitive from '@radix-ui/react-tabs'
 import clsx from 'clsx'
 
 import s from './tabs.module.scss'
 
-type TabsProps = ComponentProps<typeof TabsPrimitive.Root>
-type TabsListProps = ComponentProps<typeof TabsPrimitive.List>
-type TabsTriggerProps = ComponentProps<typeof TabsPrimitive.Trigger>
-type TabsContentProps = ComponentProps<typeof TabsPrimitive.Content>
-
-export const Tabs = ({ className, ...rest }: TabsProps) => {
+export const Tabs = forwardRef<
+  ElementRef<typeof TabsPrimitive.Root>,
+  ComponentPropsWithoutRef<typeof TabsPrimitive.Root>
+>(({ className, ...rest }, ref) => {
   const classNames = {
     tabs: clsx(s.tabs, className),
   }
 
-  return <TabsPrimitive.Root className={classNames.tabs} {...rest} />
-}
+  return <TabsPrimitive.Root className={classNames.tabs} ref={ref} {...rest} />
+})
 
-export const TabsList = ({ ...rest }: TabsListProps) => {
-  return <TabsPrimitive.List {...rest} />
-}
+export const TabsList = forwardRef<
+  ElementRef<typeof TabsPrimitive.List>,
+  ComponentPropsWithoutRef<typeof TabsPrimitive.List>
+>(({ ...rest }, ref) => {
+  return <TabsPrimitive.List ref={ref} {...rest} />
+})
 
-export const TabsTrigger = ({ className, ...rest }: TabsTriggerProps) => {
+export const TabsTrigger = forwardRef<
+  ElementRef<typeof TabsPrimitive.Trigger>,
+  ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
+>(({ className, ...rest }, ref) => {
   const classNames = {
     trigger: clsx(s.trigger, className),
   }
 
-  return <TabsPrimitive.Trigger className={classNames.trigger} {...rest} />
-}
+  return <TabsPrimitive.Trigger className={classNames.trigger} ref={ref} {...rest} />
+})
 
-export const TabsContent = ({ ...rest }: TabsContentProps) => {
-  return <TabsPrimitive.Content {...rest} />
-}
+export const TabsContent = forwardRef<
+  ElementRef<typeof TabsPrimitive.Content>,
+  ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
+>(({ ...rest }, ref) => {
+  return <TabsPrimitive.Content ref={ref} {...rest} />
+})
