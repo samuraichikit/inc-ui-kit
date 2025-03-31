@@ -6,7 +6,7 @@ const meta = {
   argTypes: {},
   component: ScrollArea,
   tags: ['autodocs'],
-  title: 'Components/ui/ScrollArea',
+  title: 'Components/ScrollArea',
 } satisfies Meta<typeof ScrollArea>
 
 export default meta

@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 50%;
+
+  background-color: var(--color-dark-500);
+}
