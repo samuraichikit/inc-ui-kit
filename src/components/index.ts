@@ -1,6 +1,7 @@
 export * from './button'
 export * from './card'
 export * from './checkbox'
+export * from './defaultAvatar'
 export * from './pagination'
 export * from './scrollArea'
 export * from './select'
