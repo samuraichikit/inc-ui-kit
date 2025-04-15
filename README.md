@@ -20,7 +20,7 @@ yarn add @samuraichikit/inc-ui-kit
 1. Add the styles import from the library into your main project file
 
 ```bash
-import '@samuraichikit/inc-ui-kit/dist/index.css
+import '@samuraichikit/inc-ui-kit/dist/index.css'
 ```
 
 2. Start using the pre-built components and icons in your application.
