@@ -1,6 +1,7 @@
 export * from './ArrowBackIcon'
 export * from './ArrowForwardIcon'
 export * from './ArrowLeftIcon'
+export * from './CalendarIcon'
 export * from './CheckIcon'
 export * from './Close'
 export * from './DropDownArrow'
