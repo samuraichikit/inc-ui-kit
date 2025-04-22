@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { GoogleIcon } from '../../assets/icons'
+import { GoogleIcon } from '../../assets'
 import { Button } from './Button'
 
 const meta = {
