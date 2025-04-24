@@ -1,3 +1,5 @@
+'use client'
+
 import { formatDate } from 'date-fns'
 
 import s from './datepicker.module.scss'
