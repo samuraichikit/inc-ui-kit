@@ -15,5 +15,6 @@ type Story = StoryObj<typeof meta>
 export const TextAreaDefault: Story = {
   args: {
     label: 'Text-area label',
+    placeholder: 'Add a comment',
   },
 }
