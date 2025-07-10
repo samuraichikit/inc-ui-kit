@@ -10,13 +10,19 @@
 .textarea {
   resize: none;
 
+  position: relative;
+
   width: 100%;
   padding: 6px 12px;
   border: none;
 
   background-color: transparent;
+  outline: none;
 
   &::placeholder {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     color: var(--color-light-900);
   }
 
@@ -32,10 +38,6 @@
     &::placeholder {
       color: var(--color-light-100);
     }
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-accent-500);
   }
 }
 
