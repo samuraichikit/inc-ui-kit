@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react'
+import { ComponentPropsWithoutRef, forwardRef } from 'react'
 
 import { Slot } from '@radix-ui/react-slot'
 import clsx from 'clsx'
@@ -9,13 +9,17 @@ type Props = {
   asChild?: boolean
   fullWidth?: boolean
   variant?: 'icon' | 'outlined' | 'primary' | 'secondary' | 'text'
-} & ComponentProps<'button'>
+} & ComponentPropsWithoutRef<'button'>
 
-export const Button = ({ asChild, className, fullWidth, variant = 'primary', ...props }: Props) => {
-  const classNames = {
-    root: clsx(s.button, s[variant], fullWidth && s.fullWidth, className),
+export const Button = forwardRef<HTMLButtonElement, Props>(
+  ({ asChild, className, fullWidth, variant = 'primary', ...props }, ref) => {
+    const classNames = {
+      root: clsx(s.button, s[variant], fullWidth && s.fullWidth, className),
+    }
+    const Component = asChild ? Slot : 'button'
+
+    return <Component className={classNames.root} ref={ref} {...props} />
   }
-  const Component = asChild ? Slot : 'button'
+)
 
-  return <Component className={classNames.root} {...props} />
-}
+Button.displayName = 'Button'
